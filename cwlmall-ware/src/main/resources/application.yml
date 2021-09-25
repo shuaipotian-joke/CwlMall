@@ -1,0 +1,25 @@
+server:
+  port: 81
+
+# mysql
+spring:
+  application:
+    name: cwlmall-ware
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.40.130:3306/gulimall_wms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+
+
+mybatis-plus:
+  mapperLocations: classpath:mapper/**/*.xml
+
+
+
