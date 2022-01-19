@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: cwlmall-member
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+#        namespace: 35d544e2-e311-4789-bd3b-c28634f59abb
+#        file-extension: yaml
+
+
