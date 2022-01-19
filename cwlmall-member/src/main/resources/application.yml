@@ -3,14 +3,15 @@ server:
 
 # mysql
 spring:
-  application:
-    name: cwlmall-member
   datasource:
     username: root
     password: root
     url: jdbc:mysql://192.168.40.130:3306/gulimall_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 
 
   jackson:
