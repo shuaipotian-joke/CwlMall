@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <artifactId>cwlmall</artifactId>
-        <groupId>com.cwl.cwlmall</groupId>
+        <groupId>com.cwl.mall</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>cwlmall-ware</artifactId>
@@ -13,7 +13,7 @@
     <description>仓储服务</description>
     <dependencies>
         <dependency>
-            <groupId>com.cwl.cwlmall</groupId>
+            <groupId>com.cwl.mall</groupId>
             <artifactId>cwlmall-common</artifactId>
             <version>${project.version}</version>
         </dependency>

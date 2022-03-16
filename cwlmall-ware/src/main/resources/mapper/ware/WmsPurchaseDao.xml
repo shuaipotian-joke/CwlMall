@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.cwl.cwlmall.ware.dao.WmsPurchaseDao">
+<mapper namespace="com.cwl.mall.ware.dao.WmsPurchaseDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.cwl.cwlmall.ware.entity.WmsPurchaseEntity" id="wmsPurchaseMap">
+    <resultMap type="com.cwl.mall.ware.entity.WmsPurchaseEntity" id="wmsPurchaseMap">
         <result property="id" column="id"/>
         <result property="assigneeId" column="assignee_id"/>
         <result property="assigneeName" column="assignee_name"/>
