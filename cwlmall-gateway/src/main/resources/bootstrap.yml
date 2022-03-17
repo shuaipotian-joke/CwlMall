@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: cwlmall-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.40.130:8848
+        namespace: 35d544e2-e311-4789-bd3b-c28634f59abb
+        file-extension: yaml
+
+

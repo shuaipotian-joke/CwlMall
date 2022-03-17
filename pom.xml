@@ -13,14 +13,15 @@
     <modules>
         <module>cwlmall-common</module>
         <module>cwlmall-coupon</module>
-<!--        <module>cwlmall-gateway</module>-->
+        <module>cwlmall-gateway</module>
         <module>cwlmall-member</module>
         <module>cwlmall-order</module>
         <module>cwlmall-product</module>
 <!--        <module>cwlmall-third-party</module>-->
         <module>cwlmall-ware</module>
         <module>renren-fast</module>
-<!--        <module>cwlmall-search</module>-->
+        <module>cwlmall-gateway</module>
+        <!--        <module>cwlmall-search</module>-->
 <!--        <module>renren-generator</module>-->
 <!--        <module>cwlmall-third-party</module>-->
 <!--        <module>cwlmall-search</module>-->

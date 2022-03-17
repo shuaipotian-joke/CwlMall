@@ -1,0 +1,24 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cwlmall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.40.130:8848
+    gateway:
+      routes:
+        - id:
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
+        - id:
+          uri: https://www.qq.com
+          predicates:
+            - Query=url,qq
+
+
+
+
