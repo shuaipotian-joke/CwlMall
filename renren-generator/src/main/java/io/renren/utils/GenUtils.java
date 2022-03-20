@@ -326,7 +326,7 @@ public class GenUtils {
         }
 
         if (template.contains("Dao.xml.vm")) {
-            return "main" + File.separator + "resources" + File.separator + "mapper" + File.separator + moduleName + File.separator + className + "Dao.xml";
+            return "main" + File.separator + "resources" + File.separator + "mapper" /*+ File.separator + moduleName*/ + File.separator + className + "Dao.xml";
         }
 
         if (template.contains("menu.sql.vm")) {

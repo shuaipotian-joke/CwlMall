@@ -1,7 +1,7 @@
 package com.cwl.mall.product;
 
-import com.cwl.mall.product.entity.PmsBrandEntity;
-import com.cwl.mall.product.service.PmsBrandService;
+import com.cwl.mall.product.entity.BrandEntity;
+import com.cwl.mall.product.service.BrandService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,11 +9,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class CwlmallProductApplicationTests {
     @Autowired
-    PmsBrandService brandService;
+    BrandService brandService;
 
     @Test
     void contextLoads() {
-        PmsBrandEntity brandEntity = new PmsBrandEntity();
+        BrandEntity brandEntity = new BrandEntity();
         brandEntity.setDescript("哈哈1哈");
         brandEntity.setName("华为");
         brandService.save(brandEntity);
