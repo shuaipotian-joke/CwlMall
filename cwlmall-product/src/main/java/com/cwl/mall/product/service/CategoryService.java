@@ -2,8 +2,10 @@ package com.cwl.mall.product.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cwl.mall.common.utils.PageUtils;
+import com.cwl.mall.product.CategoryVO;
 import com.cwl.mall.product.entity.CategoryEntity;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +18,13 @@ import java.util.Map;
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    /**
+     * 查询分类并组成装树形结构
+     *
+     * @param params
+     * @return
+     */
+    List<CategoryVO> listTree();
 }
 
