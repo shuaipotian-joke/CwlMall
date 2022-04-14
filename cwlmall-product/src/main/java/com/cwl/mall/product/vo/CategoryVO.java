@@ -1,4 +1,4 @@
-package com.cwl.mall.product;
+package com.cwl.mall.product.vo;
 
 import lombok.Data;
 

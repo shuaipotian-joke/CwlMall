@@ -2,7 +2,7 @@ package com.cwl.mall.product.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cwl.mall.common.utils.PageUtils;
-import com.cwl.mall.product.CategoryVO;
+import com.cwl.mall.product.vo.CategoryVO;
 import com.cwl.mall.product.entity.CategoryEntity;
 
 import java.util.List;

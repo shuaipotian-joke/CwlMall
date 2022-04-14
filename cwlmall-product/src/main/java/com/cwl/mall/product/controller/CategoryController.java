@@ -2,7 +2,7 @@ package com.cwl.mall.product.controller;
 
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
-import com.cwl.mall.product.CategoryVO;
+import com.cwl.mall.product.vo.CategoryVO;
 import com.cwl.mall.product.entity.CategoryEntity;
 import com.cwl.mall.product.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;

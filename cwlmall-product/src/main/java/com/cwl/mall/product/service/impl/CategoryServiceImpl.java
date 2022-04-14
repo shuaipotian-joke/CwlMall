@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.Query;
-import com.cwl.mall.product.CategoryVO;
+import com.cwl.mall.product.vo.CategoryVO;
 import com.cwl.mall.product.dao.CategoryDao;
 import com.cwl.mall.product.entity.CategoryEntity;
 import com.cwl.mall.product.service.CategoryService;
