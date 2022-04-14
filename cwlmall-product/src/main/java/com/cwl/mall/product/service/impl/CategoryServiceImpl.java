@@ -1,5 +1,6 @@
 package com.cwl.mall.product.service.impl;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -44,24 +45,24 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         // 2.1找到一级分类
         List<CategoryVO> level1Category = categoryEntities.stream().filter(e -> e.getParentCid() == 0).map(e -> {
             CategoryVO categoryVO = new CategoryVO();
-            categoryVO.setCategoryEntity(e);
+            BeanUtil.copyProperties(e,categoryVO);
             setChilren(categoryVO, categoryEntities);
             return categoryVO;
-        }).sorted(Comparator.comparingInt(s -> s.getCategoryEntity().getSort())).collect(Collectors.toList());
+        }).sorted(Comparator.comparingInt(CategoryVO::getSort)).collect(Collectors.toList());
 
         return level1Category;
     }
 
     private void setChilren(CategoryVO currentCategory, List<CategoryEntity> allCategorys) {
         List<CategoryVO> chilren = allCategorys.stream()
-            .filter(e -> Objects.equals(e.getParentCid(), currentCategory.getCategoryEntity().getCatId()))
+            .filter(e -> Objects.equals(e.getParentCid(), currentCategory.getCatId()))
             .map(e -> {
                 CategoryVO categoryVO = new CategoryVO();
-                categoryVO.setCategoryEntity(e);
+                BeanUtil.copyProperties(e,categoryVO);
                 setChilren(categoryVO, allCategorys);
                 return categoryVO;
             })
-            .sorted(Comparator.comparingInt(s -> s.getCategoryEntity().getSort())).collect(Collectors.toList());
+            .sorted(Comparator.comparingInt(CategoryVO::getSort)).collect(Collectors.toList());
         currentCategory.setChilrenCategory(chilren);
 
 
