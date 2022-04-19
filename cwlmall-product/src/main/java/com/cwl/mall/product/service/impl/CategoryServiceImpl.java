@@ -1,15 +1,16 @@
 package com.cwl.mall.product.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.Query;
-import com.cwl.mall.product.vo.CategoryVO;
 import com.cwl.mall.product.dao.CategoryDao;
 import com.cwl.mall.product.entity.CategoryEntity;
 import com.cwl.mall.product.service.CategoryService;
+import com.cwl.mall.product.vo.CategoryVO;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -51,6 +52,14 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         }).sorted(Comparator.comparingInt(CategoryVO::getSort)).collect(Collectors.toList());
 
         return level1Category;
+    }
+
+    @Override
+    public void removeMenuByIds(List<Long> asList) {
+        //TODO 1、检查当前菜单是否被其他地方引用
+        if (CollUtil.isNotEmpty(asList)) {
+            baseMapper.deleteBatchIds(asList);
+        }
     }
 
     private void setChilren(CategoryVO currentCategory, List<CategoryEntity> allCategorys) {

@@ -4,9 +4,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.40.130:8848
+        server-addr: localhost:8848
       config:
-        server-addr: 192.168.40.130:8848
+        server-addr: localhost:8848
 #        namespace: 35d544e2-e311-4789-bd3b-c28634f59abb
         file-extension: yaml
 

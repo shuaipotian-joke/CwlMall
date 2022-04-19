@@ -26,5 +26,7 @@ public interface CategoryService extends IService<CategoryEntity> {
      * @return
      */
     List<CategoryVO> listTree();
+
+    void removeMenuByIds(List<Long> asList);
 }
 

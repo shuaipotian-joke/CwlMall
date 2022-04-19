@@ -20,6 +20,17 @@ spring:
 
 mybatis-plus:
   mapperLocations: classpath:mapper/*.xml
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+logging:
+  level:
+    com:
+      cwl:
+        mall:
+          product:
+            dao: debug
 
 
 
