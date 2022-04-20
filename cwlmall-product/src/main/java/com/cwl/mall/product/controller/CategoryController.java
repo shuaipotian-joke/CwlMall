@@ -54,12 +54,13 @@ public class CategoryController {
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
-        return R.ok().put("category", category);
+        return R.ok().put("data", category);
     }
 
     /**
      * 保存
      */
+    //TODO 会插入很大的id
     @RequestMapping("/save")
     public R save(@RequestBody CategoryEntity category){
 		categoryService.save(category);
@@ -78,8 +79,19 @@ public class CategoryController {
     }
 
     /**
+     * 修改顺序
+     */
+    @RequestMapping("/update/sort")
+    public R update(@RequestBody CategoryEntity[] category){
+        categoryService.updateBatchById(Arrays.asList(category));
+
+        return R.ok();
+    }
+
+    /**
      * 删除
      */
+    //TODO 查询查的id与删除的id不一致导致删不掉
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
 		categoryService.removeMenuByIds(Arrays.asList(catIds));
