@@ -1,15 +1,15 @@
 package com.cwl.mall.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
 
 /**
  * 品牌
- * 
+ *
  * @author cwl
  * @email 1045501964@qq.com
  * @date 2022-03-20 16:22:19
@@ -39,6 +39,7 @@ public class BrandEntity implements Serializable {
 	/**
 	 * 显示状态[0-不显示；1-显示]
 	 */
+	@TableLogic
 	private Integer showStatus;
 	/**
 	 * 检索首字母
