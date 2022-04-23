@@ -4,7 +4,7 @@ spring:
       access-key: LTAI5tJ4BEuusFsPBRJPYGfr
       secret-key: uJK6gXKIekgNEFSQ9rJux3M9cJxf7L
       oss:
-        endpoint: https://oss-cn-zhangjiakou.aliyuncs.com
+        endpoint: oss-cn-zhangjiakou.aliyuncs.com
         bucket: cwl-mall
 server:
   port: 90
