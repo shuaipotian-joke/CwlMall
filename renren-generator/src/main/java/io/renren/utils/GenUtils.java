@@ -45,8 +45,8 @@ public class GenUtils {
         templates.add("template/Controller.java.vm");
         templates.add("template/Dao.java.vm");
 
-//        templates.add("template/index.vue.vm");
-//        templates.add("template/add-or-update.vue.vm");
+        templates.add("template/index.vue.vm");
+        templates.add("template/add-or-update.vue.vm");
         if (MongoManager.isMongo()) {
             // mongo不需要mapper、sql   实体类需要替换
             templates.remove(0);
