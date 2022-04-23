@@ -21,6 +21,7 @@
         <module>cwlmall-ware</module>
         <module>renren-fast</module>
         <module>cwlmall-gateway</module>
+        <module>cwlmall-third-party</module>
         <!--        <module>cwlmall-search</module>-->
 <!--        <module>renren-generator</module>-->
 <!--        <module>cwlmall-third-party</module>-->
