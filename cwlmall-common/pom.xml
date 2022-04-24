@@ -12,6 +12,10 @@
     <artifactId>cwlmall-common</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
         <!--        服务注册/发现-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

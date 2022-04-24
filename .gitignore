@@ -13,3 +13,4 @@ LICENSE
 mvnw
 mvnw.cmd
 *.iml
+/logs/
