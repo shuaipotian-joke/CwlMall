@@ -1,19 +1,14 @@
 package com.cwl.mall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.cwl.mall.product.entity.AttrGroupEntity;
-import com.cwl.mall.product.service.AttrGroupService;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
+import com.cwl.mall.product.entity.AttrGroupEntity;
+import com.cwl.mall.product.service.AttrGroupService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -33,10 +28,9 @@ public class AttrGroupController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = attrGroupService.queryPage(params);
-
+    @RequestMapping("/list/{catalogId}")
+    public R list(@RequestParam Map<String, Object> params,@PathVariable("catalogId")Long catalogId){
+        PageUtils page = attrGroupService.queryPage(params, catalogId);
         return R.ok().put("page", page);
     }
 
