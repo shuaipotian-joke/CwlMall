@@ -13,10 +13,7 @@ import com.cwl.mall.product.service.CategoryService;
 import com.cwl.mall.product.vo.CategoryVO;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -60,6 +57,23 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         if (CollUtil.isNotEmpty(asList)) {
             baseMapper.deleteBatchIds(asList);
         }
+    }
+
+    @Override
+    public Long[] findCatelogPath(Long catelogId) {
+        List<Long> paths = new ArrayList<>();
+        paths = findParentPath(catelogId,paths);
+        Collections.reverse(paths);
+        return paths.toArray(new Long[paths.size()]);
+    }
+
+    private List<Long> findParentPath(Long catelogId, List<Long> paths) {
+        paths.add(catelogId);
+        CategoryEntity categoryEntity = this.getById(catelogId);
+        if (categoryEntity.getParentCid() != 0) {
+            findParentPath(categoryEntity.getParentCid(),paths);
+        }
+        return paths;
     }
 
     private void setChilren(CategoryVO currentCategory, List<CategoryEntity> allCategorys) {

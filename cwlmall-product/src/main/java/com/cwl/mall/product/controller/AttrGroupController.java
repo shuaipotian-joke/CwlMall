@@ -1,9 +1,12 @@
 package com.cwl.mall.product.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
 import com.cwl.mall.product.entity.AttrGroupEntity;
 import com.cwl.mall.product.service.AttrGroupService;
+import com.cwl.mall.product.service.CategoryService;
+import com.cwl.mall.product.vo.AttrGroupVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +27,8 @@ import java.util.Map;
 public class AttrGroupController {
     @Autowired
     private AttrGroupService attrGroupService;
+    @Autowired
+    private CategoryService categoryService;
 
     /**
      * 列表
@@ -41,8 +46,13 @@ public class AttrGroupController {
     @RequestMapping("/info/{attrGroupId}")
     public R info(@PathVariable("attrGroupId") Long attrGroupId){
 		AttrGroupEntity attrGroup = attrGroupService.getById(attrGroupId);
+        Long catelogId = attrGroup.getCatelogId();
+        Long[] path = categoryService.findCatelogPath(catelogId);
+        AttrGroupVO attrGroupVO = new AttrGroupVO();
+        attrGroupVO.setCatelogPath(path);
+        BeanUtil.copyProperties(attrGroup,attrGroupVO);
 
-        return R.ok().put("attrGroup", attrGroup);
+        return R.ok().put("attrGroup", attrGroupVO);
     }
 
     /**
