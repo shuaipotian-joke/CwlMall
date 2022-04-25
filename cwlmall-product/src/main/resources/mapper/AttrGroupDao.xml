@@ -13,5 +13,7 @@
         <result property="catelogId" column="catelog_id"/>
     </resultMap>
 
-
+    <select id="selectOneVO"  resultType="com.cwl.mall.product.vo.AttrGroupVO">
+        select * from pms_attr_group where attr_group_id=#{attrGroupId}
+    </select>
 </mapper>

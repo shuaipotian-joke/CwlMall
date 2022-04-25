@@ -9,6 +9,8 @@ import com.cwl.mall.common.utils.Query;
 import com.cwl.mall.product.dao.AttrGroupDao;
 import com.cwl.mall.product.entity.AttrGroupEntity;
 import com.cwl.mall.product.service.AttrGroupService;
+import com.cwl.mall.product.vo.AttrGroupVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -16,6 +18,8 @@ import java.util.Map;
 
 @Service("attrGroupService")
 public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEntity> implements AttrGroupService {
+    @Autowired
+    private AttrGroupDao attrGroupDao;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -42,6 +46,11 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         IPage<AttrGroupEntity> page = this.page(new Query<AttrGroupEntity>().getPage(params), wrapper);
         return new PageUtils(page);
 
+    }
+
+    @Override
+    public AttrGroupVO getVOById(Long attrGroupId) {
+        return attrGroupDao.selectOneVO(attrGroupId);
     }
 
 }

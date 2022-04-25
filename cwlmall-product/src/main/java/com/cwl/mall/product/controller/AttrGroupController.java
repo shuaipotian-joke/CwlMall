@@ -1,6 +1,5 @@
 package com.cwl.mall.product.controller;
 
-import cn.hutool.core.bean.BeanUtil;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
 import com.cwl.mall.product.entity.AttrGroupEntity;
@@ -45,14 +44,11 @@ public class AttrGroupController {
      */
     @RequestMapping("/info/{attrGroupId}")
     public R info(@PathVariable("attrGroupId") Long attrGroupId){
-		AttrGroupEntity attrGroup = attrGroupService.getById(attrGroupId);
+		AttrGroupVO attrGroup = attrGroupService.getVOById(attrGroupId);
         Long catelogId = attrGroup.getCatelogId();
         Long[] path = categoryService.findCatelogPath(catelogId);
-        AttrGroupVO attrGroupVO = new AttrGroupVO();
-        attrGroupVO.setCatelogPath(path);
-        BeanUtil.copyProperties(attrGroup,attrGroupVO);
-
-        return R.ok().put("attrGroup", attrGroupVO);
+        attrGroup.setCatelogPath(path);
+        return R.ok().put("attrGroup", attrGroup);
     }
 
     /**
