@@ -9,9 +9,12 @@ import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.Query;
 import com.cwl.mall.product.dao.CategoryDao;
 import com.cwl.mall.product.entity.CategoryEntity;
+import com.cwl.mall.product.service.CategoryBrandRelationService;
 import com.cwl.mall.product.service.CategoryService;
 import com.cwl.mall.product.vo.CategoryVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -19,7 +22,8 @@ import java.util.stream.Collectors;
 
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
-
+    @Autowired
+    CategoryBrandRelationService categoryBrandRelationService;
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<CategoryEntity> page = this.page(
@@ -67,6 +71,17 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return paths.toArray(new Long[paths.size()]);
     }
 
+    /**
+     * 级联更新所有关联的数据
+     * @param category
+     */
+    @Transactional
+    @Override
+    public void updateCascade(CategoryEntity category) {
+        this.updateById(category);
+        categoryBrandRelationService.updateCategory(category.getCatId(),category.getName());
+    }
+
     private List<Long> findParentPath(Long catelogId, List<Long> paths) {
         paths.add(catelogId);
         CategoryEntity categoryEntity = this.getById(catelogId);
@@ -85,7 +100,8 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
                 setChilren(categoryVO, allCategorys);
                 return categoryVO;
             })
-            .sorted(Comparator.comparingInt(CategoryVO::getSort)).collect(Collectors.toList());
+            .sorted(Comparator.comparingInt(CategoryVO::getSort))
+                .collect(Collectors.toList());
         currentCategory.setChilrenCategory(chilren);
 
 
