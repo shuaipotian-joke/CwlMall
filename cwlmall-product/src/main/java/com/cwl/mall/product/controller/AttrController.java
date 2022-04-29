@@ -2,7 +2,6 @@ package com.cwl.mall.product.controller;
 
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
-import com.cwl.mall.product.entity.AttrEntity;
 import com.cwl.mall.product.service.AttrService;
 import com.cwl.mall.product.vo.AttrRespVo;
 import com.cwl.mall.product.vo.AttrVo;
@@ -27,11 +26,12 @@ public class AttrController {
     @Autowired
     private AttrService attrService;
 
-    @GetMapping("/base/list/{catelogId}")
+    @GetMapping("/{attrType}/list/{catelogId}")
     public R baseAttrList(@RequestParam Map<String, Object> params,
-                          @PathVariable("catelogId") Long catelogId){
+                          @PathVariable("catelogId") Long catelogId,
+                          @PathVariable("attrType") String type){
 
-        PageUtils page = attrService.queryBaseAttrPage(params,catelogId);
+        PageUtils page = attrService.queryBaseAttrPage(params,catelogId,type);
         return R.ok().put("page", page);
     }
 
@@ -69,8 +69,8 @@ public class AttrController {
      * 修改
      */
     @RequestMapping("/update")
-    public R update(@RequestBody AttrEntity attr){
-		attrService.updateById(attr);
+    public R update(@RequestBody AttrVo attr){
+		attrService.updateAttr(attr);
 
         return R.ok();
     }
