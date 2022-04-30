@@ -2,14 +2,20 @@ package com.cwl.mall.product.controller;
 
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
+import com.cwl.mall.product.dao.AttrAttrgroupRelationDao;
+import com.cwl.mall.product.entity.AttrEntity;
 import com.cwl.mall.product.entity.AttrGroupEntity;
+import com.cwl.mall.product.service.AttrAttrgroupRelationService;
 import com.cwl.mall.product.service.AttrGroupService;
+import com.cwl.mall.product.service.AttrService;
 import com.cwl.mall.product.service.CategoryService;
+import com.cwl.mall.product.vo.AttrGroupRelationVo;
 import com.cwl.mall.product.vo.AttrGroupVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -28,6 +34,36 @@ public class AttrGroupController {
     private AttrGroupService attrGroupService;
     @Autowired
     private CategoryService categoryService;
+    @Autowired
+    AttrService attrService;
+    @Autowired
+    AttrAttrgroupRelationService relationService;
+
+    @PostMapping("/attr/relation")
+    public R addRelation(@RequestBody List<AttrGroupRelationVo> vos){
+
+        relationService.saveBatch(vos);
+        return R.ok();
+    }
+
+    @GetMapping("/{attrgroupId}/attr/relation")
+    public R attrRelation(@PathVariable("attrgroupId") Long attrgroupId){
+        List<AttrEntity> entities =  attrService.getRelationAttr(attrgroupId);
+        return R.ok().put("data",entities);
+    }
+
+    @GetMapping("/{attrgroupId}/noattr/relation")
+    public R attrNoRelation(@PathVariable("attrgroupId") Long attrgroupId,
+                            @RequestParam Map<String, Object> params){
+        PageUtils page = attrService.getNoRelationAttr(params,attrgroupId);
+        return R.ok().put("page",page);
+    }
+
+    @PostMapping("/attr/relation/delete")
+    public R deleteRelation(@RequestBody  AttrGroupRelationVo[] vos){
+        attrService.deleteRelation(vos);
+        return R.ok();
+    }
 
     /**
      * 列表
