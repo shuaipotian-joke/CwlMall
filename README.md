@@ -1,37 +1,39 @@
 # CwlMall
 
-#### 介绍
-gulimall个人改造版
 
-#### 软件架构
-软件架构说明
+#谷粒商城第一季
 
 
-#### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+### 基础设施
 
-#### 使用说明
+## 🐨 技术栈
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+| 项目                    | 说明       |
+|-----------------------|----------|
+| `cwlmall-common`  | 公共依赖     |
+| `cwlmall-coupon`     | 优惠模块     |
+| `cwlmall-gateway`        | 网关模块     |
+| `cwlmall-member`      | 会员模块     |
+| `cwlmall-order`       | 订单模块     |
+| `cwlmall-product` | 商品模块     |
+| `cwlmall-third-party`  | 第三方模块    |
+| `cwlmall-ware`   | 库存模块     |
+| `renren-fast`    | 后台系统后端代码 |
+| `renren-fast-vue`    | 后台系统前端代码 |
+| `renren-generator`    | 人人开源生成器  |
+| `Nacos`    | Nacos源码  |
 
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### 后端
 
 
-#### 特技
+| 框架                 | 说明               | 版本       | 
+|--------------------|------------------|----------|
+| `Spring Boot  `    | 应用开发框架           | 2.2.2.RELEASE | 
+| `MySQL`           | 数据库服务器           | 8.0      | 
+| `MyBatis Plus`       | MyBatis 增强工具包    | 3.3.1    | 
+| `Spring MVC`         | MVC 框架           | 5.3.16   | 
+| `Hibernate Validator` | 参数校验组件           | 6.2.2    | 
+| `Lombok`             | 消除冗长的 Java 代码    | 1.16.14  | 
+| `JUnit`              | Java 单元测试框架      | 5.7.2    | 
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
