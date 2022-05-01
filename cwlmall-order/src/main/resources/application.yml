@@ -24,4 +24,10 @@ mybatis-plus:
     db-config:
       id-type: auto
 
-
+logging:
+  level:
+    com:
+      cwl:
+        mall:
+          order:
+            dao: debug
