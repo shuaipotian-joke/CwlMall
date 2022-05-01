@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.Query;
-import com.cwl.mall.product.constants.ProductConstant;
+import com.cwl.mall.common.constant.ProductConstant;
 import com.cwl.mall.product.dao.AttrAttrgroupRelationDao;
 import com.cwl.mall.product.dao.AttrDao;
 import com.cwl.mall.product.dao.AttrGroupDao;
