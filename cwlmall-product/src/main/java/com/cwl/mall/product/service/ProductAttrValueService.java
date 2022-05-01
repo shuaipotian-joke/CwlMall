@@ -3,7 +3,9 @@ package com.cwl.mall.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.product.entity.ProductAttrValueEntity;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +18,10 @@ import java.util.Map;
 public interface ProductAttrValueService extends IService<ProductAttrValueEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<ProductAttrValueEntity> baseAttrlistforspu(Long spuId);
+
+    @Transactional
+    void updateSpuAttr(Long spuId, List<ProductAttrValueEntity> entities);
 }
 
