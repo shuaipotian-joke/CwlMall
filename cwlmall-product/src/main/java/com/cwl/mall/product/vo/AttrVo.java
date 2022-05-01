@@ -47,4 +47,5 @@ public class AttrVo {
     private Integer showDesc;
 
     private Long attrGroupId;
+
 }

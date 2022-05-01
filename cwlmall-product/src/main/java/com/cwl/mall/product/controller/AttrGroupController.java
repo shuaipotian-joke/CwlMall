@@ -2,7 +2,6 @@ package com.cwl.mall.product.controller;
 
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
-import com.cwl.mall.product.dao.AttrAttrgroupRelationDao;
 import com.cwl.mall.product.entity.AttrEntity;
 import com.cwl.mall.product.entity.AttrGroupEntity;
 import com.cwl.mall.product.service.AttrAttrgroupRelationService;
@@ -11,6 +10,7 @@ import com.cwl.mall.product.service.AttrService;
 import com.cwl.mall.product.service.CategoryService;
 import com.cwl.mall.product.vo.AttrGroupRelationVo;
 import com.cwl.mall.product.vo.AttrGroupVO;
+import com.cwl.mall.product.vo.AttrGroupWithAttrsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +44,15 @@ public class AttrGroupController {
 
         relationService.saveBatch(vos);
         return R.ok();
+    }
+
+    @GetMapping("/{catelogId}/withattr")
+    public R getAttrGroupWithAttrs(@PathVariable("catelogId")Long catelogId){
+
+        //1、查出当前分类下的所有属性分组，
+        //2、查出每个属性分组的所有属性
+        List<AttrGroupWithAttrsVo> vos =  attrGroupService.getAttrGroupWithAttrsByCatelogId(catelogId);
+        return R.ok().put("data",vos);
     }
 
     @GetMapping("/{attrgroupId}/attr/relation")

@@ -9,7 +9,12 @@ public class AttrRespVo extends AttrVo {
      * 			"groupName": "主体", //所属分组名字
      */
     private String catelogName;
+
     private String groupName;
 
     private Long[] catelogPath;
+    /**
+     * 值类型[0-为单个值，1-可以选择多个值]
+     */
+    private Integer valueType;
 }
