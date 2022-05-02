@@ -67,7 +67,7 @@
     methods: {
       // 提交表单
       dataFormSubmit () {
-        this.$refs['dataForm'].validate((valid) => {
+        this.$refs['dataForm'].validate((valid)  => {
           if (valid) {
             this.$http({
               url: this.$http.adornUrl('/sys/login'),
