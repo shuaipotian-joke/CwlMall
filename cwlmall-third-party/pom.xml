@@ -11,7 +11,7 @@
 
     <artifactId>cwlmall-third-part</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>cwlmall-product</name>
+    <name>cwlmall-third-part</name>
     <description>第三方服务</description>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

@@ -17,21 +17,19 @@
         <module>cwlmall-member</module>
         <module>cwlmall-order</module>
         <module>cwlmall-product</module>
-<!--        <module>cwlmall-third-party</module>-->
         <module>cwlmall-ware</module>
         <module>renren-fast</module>
         <module>renren-generator</module>
-        <module>cwlmall-gateway</module>
         <module>cwlmall-third-party</module>
+        <module>cwlmall-search</module>
+        <!--        <module>renren-generator</module>-->
         <!--        <module>cwlmall-search</module>-->
-<!--        <module>renren-generator</module>-->
-<!--        <module>cwlmall-search</module>-->
-<!--        <module>cwlmall-auth-server</module>-->
-<!--        <module>cwlmall-cart</module>-->
-<!--        <module>cwlmall-test-sso-client</module>-->
-<!--        <module>cwlmall-test-sso-server</module>-->
-<!--        <module>cwlmall-seckill</module>-->
-        		<module>cwlmall-register</module>
+        <!--        <module>cwlmall-auth-server</module>-->
+        <!--        <module>cwlmall-cart</module>-->
+        <!--        <module>cwlmall-test-sso-client</module>-->
+        <!--        <module>cwlmall-test-sso-server</module>-->
+        <!--        <module>cwlmall-seckill</module>-->
+        <module>cwlmall-register</module>
     </modules>
 
 

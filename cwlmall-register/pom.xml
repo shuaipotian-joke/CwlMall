@@ -19,12 +19,11 @@
 		<artifactId>cwlmall</artifactId>
 		<groupId>com.cwl.mall</groupId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath/>
 	</parent>
 
-	<artifactId>pig-register</artifactId>
+	<artifactId>cwlmall-register</artifactId>
 	<packaging>jar</packaging>
-	<name>pig-register</name>
+	<name>cwlmall-register</name>
 	<description>nacos 注册配置中心</description>
 
 	<properties>
@@ -80,10 +79,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>io.fabric8</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 		<resources>
