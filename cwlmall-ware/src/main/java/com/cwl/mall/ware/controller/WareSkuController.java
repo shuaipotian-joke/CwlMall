@@ -1,19 +1,16 @@
 package com.cwl.mall.ware.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.cwl.mall.ware.entity.WareSkuEntity;
-import com.cwl.mall.ware.service.WareSkuService;
+import com.cwl.mall.common.to.SkuHasStockTO;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.R;
+import com.cwl.mall.ware.entity.WareSkuEntity;
+import com.cwl.mall.ware.service.WareSkuService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 
 
@@ -29,6 +26,19 @@ import com.cwl.mall.common.utils.R;
 public class WareSkuController {
     @Autowired
     private WareSkuService wareSkuService;
+
+    // sku的规格参数相同，因此我们要将查询规格参数提前，只查询一次
+    /**
+     * 查询sku是否有库存
+     * 返回skuId 和 stock库存量
+     */
+    @PostMapping("/hasstock")
+    public R<List<SkuHasStockTO>> getSkuHasStock(@RequestBody List<Long> SkuIds){
+        List<SkuHasStockTO> vos = wareSkuService.getSkuHasStock(SkuIds);
+        R<List<SkuHasStockTO>> ok = R.ok();
+        ok.setData(vos);
+        return ok;
+    }
 
     /**
      * 列表

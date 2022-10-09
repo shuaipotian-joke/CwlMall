@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cwl.mall.common.to.SkuHasStockTO;
 import com.cwl.mall.common.to.SkuReductionTo;
 import com.cwl.mall.common.to.SpuBoundTO;
 import com.cwl.mall.common.to.es.SkuEsModel;
@@ -14,6 +15,7 @@ import com.cwl.mall.common.utils.R;
 import com.cwl.mall.product.dao.SpuInfoDao;
 import com.cwl.mall.product.entity.*;
 import com.cwl.mall.product.feign.CouponFeignService;
+import com.cwl.mall.product.feign.WareFeignService;
 import com.cwl.mall.product.service.*;
 import com.cwl.mall.product.vo.BaseAttrs;
 import com.cwl.mall.product.vo.Bounds;
@@ -62,6 +64,9 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     @Autowired
     CategoryService categoryService;
+
+    @Autowired
+    WareFeignService wareFeignService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -230,7 +235,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     public void up(Long spuId) {
         // 查出spu下的所有sku
         List<SkuInfoEntity> skus = skuInfoService.getSkusBySpuId(spuId);
-
+        List<Long> skuIdList = skus.stream().map(SkuInfoEntity::getSkuId).collect(Collectors.toList());
         // 查询当前sku的所有可以用来被检索的规格属性
         List<ProductAttrValueEntity> baseAttrs = productAttrValueService.baseAttrlistforspu(spuId);
         List<Long> attrIds = baseAttrs.stream().map(ProductAttrValueEntity::getAttrId).collect(Collectors.toList());
@@ -243,15 +248,26 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                     return attr;
                 })
                 .collect(Collectors.toList());
-
+        // 发送远程查是否有库存
+        Map<Long, Boolean> stockMap = null;
+        try {
+            R<List<SkuHasStockTO>> hasStock = wareFeignService.getSkusHasStock(skuIdList);
+            stockMap = hasStock.getData().stream().collect(Collectors.toMap(SkuHasStockTO::getSkuId, SkuHasStockTO::getHasStock));
+        }catch (Exception e){
+            log.error("库存服务查询异常：原因{}",e);
+        }
         // 将sku与es模型属性对拷
+        Map<Long, Boolean> finalStockMap = stockMap;
         List<SkuEsModel> upProducts = skus.stream().map(sku -> {
             SkuEsModel esModel = new SkuEsModel();
             BeanUtils.copyProperties(sku,esModel);
             esModel.setSkuPrice(sku.getPrice());
             esModel.setSkuImg(sku.getSkuDefaultImg());
-            // 发送远程查是否有库存
-
+            if(finalStockMap == null) {
+                esModel.setHasStock(true);
+            }else {
+                esModel.setHasStock(finalStockMap.get(sku.getSkuId()));
+            }
             // 热度评分
             esModel.setHotScore(0L);
             // 查品牌和分类的名字信息

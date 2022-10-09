@@ -3,6 +3,7 @@ package com.cwl.mall.ware.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cwl.mall.common.to.SkuHasStockTO;
 import com.cwl.mall.common.utils.PageUtils;
 import com.cwl.mall.common.utils.Query;
 import com.cwl.mall.common.utils.R;
@@ -16,6 +17,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 @Service("wareSkuService")
@@ -82,6 +84,18 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
             wareSkuDao.addStock(skuId,wareId,skuNum);
         }
 
+    }
+
+    @Override
+    public List<SkuHasStockTO> getSkuHasStock(List<Long> skuIds) {
+        List<SkuHasStockTO> collect = skuIds.stream().map(skuId -> {
+            SkuHasStockTO to = new SkuHasStockTO();
+            long count = baseMapper.getSkuStock(skuId);
+            to.setSkuId(skuId);
+            to.setHasStock(count>0);
+            return to;
+        }).collect(Collectors.toList());
+        return collect;
     }
 
 }
