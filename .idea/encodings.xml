@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/cwlmall-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-coupon/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-coupon/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-member/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-member/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-order/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-product/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-product/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-register/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-register/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-third-part/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-third-part/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-third-party/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-third-party/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-ware/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cwlmall-ware/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-fast/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/renren-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
