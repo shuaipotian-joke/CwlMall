@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:15:40
 */
-
+DROP DATABASE IF EXISTS `gulimall_oms`;
+CREATE DATABASE `gulimall_oms`;
+USE `gulimall_oms`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

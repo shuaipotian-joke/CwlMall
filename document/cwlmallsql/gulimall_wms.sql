@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:16:06
 */
-
+DROP DATABASE IF EXISTS `gulimall_wms`;
+CREATE DATABASE `gulimall_wms`;
+USE `gulimall_wms`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

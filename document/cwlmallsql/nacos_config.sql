@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:16:11
 */
-
+DROP DATABASE IF EXISTS `nacos_config`;
+CREATE DATABASE `nacos_config`;
+USE `nacos_config`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

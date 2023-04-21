@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:16:00
 */
-
+DROP DATABASE IF EXISTS `gulimall_ums`;
+CREATE DATABASE `gulimall_ums`;
+USE `gulimall_ums`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

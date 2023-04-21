@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:15:53
 */
-
+DROP DATABASE IF EXISTS `gulimall_sms`;
+CREATE DATABASE `gulimall_sms`;
+USE `gulimall_sms`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

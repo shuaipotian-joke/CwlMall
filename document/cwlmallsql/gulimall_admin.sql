@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:15:29
 */
-
+DROP DATABASE IF EXISTS `gulimall_admin`;
+CREATE DATABASE `gulimall_admin`;
+USE `gulimall_admin`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

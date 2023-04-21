@@ -13,7 +13,9 @@
 
  Date: 12/04/2023 22:16:22
 */
-
+DROP DATABASE IF EXISTS `renren_fast`;
+CREATE DATABASE `renren_fast`;
+USE `renren_fast`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
